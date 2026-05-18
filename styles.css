@@ -1,0 +1,192 @@
+/* Resume polish layer: shared tokens and utilities used by the Tailwind CDN markup. */
+:root {
+    --desert-sandstone: #d4a574;
+    --wine-burgundy: #722f37;
+    --sage-green: #87a96b;
+    --terracotta: #b85450;
+    --cream: #f5f1e8;
+    --charcoal: #2c2c2c;
+    --golden-hour: #e6b17a;
+    --copper: #b87333;
+}
+
+.text-charcoal {
+    color: var(--charcoal);
+}
+
+.text-charcoal\/80 {
+    color: rgb(44 44 44 / 0.8);
+}
+
+.text-charcoal\/70 {
+    color: rgb(44 44 44 / 0.7);
+}
+
+.text-charcoal\/60 {
+    color: rgb(44 44 44 / 0.6);
+}
+
+.text-charcoal\/40 {
+    color: rgb(44 44 44 / 0.4);
+}
+
+.text-wine-burgundy {
+    color: var(--wine-burgundy);
+}
+
+.text-terracotta {
+    color: var(--terracotta);
+}
+
+.text-sage-green {
+    color: var(--sage-green);
+}
+
+.text-golden-hour {
+    color: var(--golden-hour);
+}
+
+.bg-charcoal {
+    background-color: var(--charcoal);
+}
+
+.bg-cream {
+    background-color: var(--cream);
+}
+
+.bg-wine-burgundy {
+    background-color: var(--wine-burgundy);
+}
+
+.bg-wine-burgundy\/10 {
+    background-color: rgb(114 47 55 / 0.1);
+}
+
+.bg-wine-burgundy\/20 {
+    background-color: rgb(114 47 55 / 0.2);
+}
+
+.bg-wine-burgundy\/90 {
+    background-color: rgb(114 47 55 / 0.9);
+}
+
+.bg-sage-green {
+    background-color: var(--sage-green);
+}
+
+.bg-sage-green\/10 {
+    background-color: rgb(135 169 107 / 0.1);
+}
+
+.bg-terracotta\/10 {
+    background-color: rgb(184 84 80 / 0.1);
+}
+
+.bg-golden-hour {
+    background-color: var(--golden-hour);
+}
+
+.bg-gradient-to-br.from-wine-burgundy.to-terracotta {
+    background-image: linear-gradient(to bottom right, var(--wine-burgundy), var(--terracotta));
+}
+
+.bg-gradient-to-br.from-sage-green.to-golden-hour {
+    background-image: linear-gradient(to bottom right, var(--sage-green), var(--golden-hour));
+}
+
+.bg-gradient-to-br.from-terracotta.to-golden-hour {
+    background-image: linear-gradient(to bottom right, var(--terracotta), var(--golden-hour));
+}
+
+.bg-gradient-to-br.from-golden-hour.to-copper {
+    background-image: linear-gradient(to bottom right, var(--golden-hour), var(--copper));
+}
+
+.bg-gradient-to-br.from-copper.to-golden-hour {
+    background-image: linear-gradient(to bottom right, var(--copper), var(--golden-hour));
+}
+
+.border-wine-burgundy {
+    border-color: var(--wine-burgundy);
+}
+
+.border-sage-green {
+    border-color: var(--sage-green);
+}
+
+.border-terracotta {
+    border-color: var(--terracotta);
+}
+
+.focus\:border-wine-burgundy:focus {
+    border-color: var(--wine-burgundy);
+}
+
+.focus\:ring-wine-burgundy\/20:focus {
+    --tw-ring-color: rgb(114 47 55 / 0.2);
+}
+
+.hover\:bg-wine-burgundy:hover {
+    background-color: var(--wine-burgundy);
+}
+
+.hover\:bg-wine-burgundy\/90:hover {
+    background-color: rgb(114 47 55 / 0.9);
+}
+
+.hover\:bg-sage-green:hover {
+    background-color: var(--sage-green);
+}
+
+.hover\:border-wine-burgundy:hover {
+    border-color: var(--wine-burgundy);
+}
+
+.hover\:text-terracotta:hover {
+    color: var(--terracotta);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgb(114 47 55 / 0.35);
+}
+
+.btn-primary:disabled,
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+}
+
+@media (max-width: 767px) {
+    nav .h-16 {
+        min-height: 4rem;
+    }
+
+    nav .btn-primary {
+        padding-inline: 1rem;
+        white-space: nowrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

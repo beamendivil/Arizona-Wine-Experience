@@ -1,8 +1,11 @@
 {
-  "name": "sonoran-wine-experiences",
+  "name": "arizona-wine-experience",
   "version": "1.0.0",
-  "description": "Static website for Arizona wine country tours",
+  "description": "Static website for Arizona wine experiences",
   "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "test": "node --test",
+    "check": "npm run lint && npm run test && npm run format:check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{html,js,css,md}\"",
