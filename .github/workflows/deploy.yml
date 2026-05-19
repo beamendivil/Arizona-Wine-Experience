@@ -12,11 +12,14 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   validate:
+    name: Pre-Deploy Quality Gate
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,11 +30,18 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
       - name: Run quality checks
         run: npm run check
 
   deploy:
+    name: Deploy GitHub Pages
     needs: validate
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

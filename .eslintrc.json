@@ -17,7 +17,7 @@
   },
   "overrides": [
     {
-      "files": ["tests/**/*.js"],
+      "files": ["playwright.config.js", "tests/**/*.js"],
       "env": {
         "node": true
       }

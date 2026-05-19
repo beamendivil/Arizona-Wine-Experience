@@ -1,5 +1,8 @@
 # Arizona Wine Experience
 
+[![CI](https://github.com/beamendivil/CuratedTucsonSite/actions/workflows/ci.yml/badge.svg)](https://github.com/beamendivil/CuratedTucsonSite/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/beamendivil/CuratedTucsonSite/actions/workflows/deploy.yml/badge.svg)](https://github.com/beamendivil/CuratedTucsonSite/actions/workflows/deploy.yml)
+
 Arizona Wine Experience is a static, multi-page hospitality website for a fictional Arizona wine-tour brand. It was built as a front-end portfolio project focused on destination storytelling, responsive UI, interactive education, and clear product documentation.
 
 ## Live Demo
@@ -80,9 +83,15 @@ The test suite lives in `tests/site.test.js`. It checks the parts most likely to
 - Key interactive hooks match the markup they depend on.
 - Package metadata and README branding stay aligned.
 
+Browser tests live in `tests/e2e/site.spec.js` and cover homepage navigation, pairing selection, booking calendar time slots, and Wine 101 quiz persistence.
+
+See `docs/testing.md` for the full testing strategy.
+
 ## Deployment
 
 The GitHub Pages workflow in `.github/workflows/deploy.yml` runs the full quality gate before publishing. The old GitHub Packages publish workflow was removed because this is a static website, not an npm package intended for distribution.
+
+See `docs/workflow.md` for the local development, CI, and deployment workflow.
 
 ## Accessibility Notes
 

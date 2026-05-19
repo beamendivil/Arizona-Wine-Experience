@@ -11,10 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
 });
 
+function runAnimation(options) {
+    if (typeof anime === 'function') {
+        anime(options);
+    }
+}
+
 // Typewriter effect for hero section
 function initTypewriter() {
     const typedElement = document.getElementById('typed-regions');
-    if (typedElement) {
+    if (typedElement && typeof Typed === 'function') {
         new Typed('#typed-regions', {
             strings: [
                 "Sonoita • Arizona's First AVA",
@@ -56,6 +62,8 @@ function initScrollAnimations() {
 
 // Initialize Splide carousels
 function initCarousels() {
+    if (typeof Splide !== 'function') return;
+
     // Winery carousel
     const wineryCarousel = document.getElementById('winery-carousel');
     if (wineryCarousel) {
@@ -137,7 +145,7 @@ function initRegionMap() {
             updateRegionInfo(regionData[region]);
 
             // Animate marker
-            anime({
+            runAnimation({
                 targets: this,
                 scale: [1.3, 1.5, 1.3],
                 duration: 600,
@@ -146,7 +154,7 @@ function initRegionMap() {
         });
 
         marker.addEventListener('mouseenter', function () {
-            anime({
+            runAnimation({
                 targets: this,
                 scale: 1.3,
                 duration: 300,
@@ -155,7 +163,7 @@ function initRegionMap() {
         });
 
         marker.addEventListener('mouseleave', function () {
-            anime({
+            runAnimation({
                 targets: this,
                 scale: 1,
                 duration: 300,
@@ -196,7 +204,7 @@ function updateRegionInfo(data) {
     `;
 
     // Animate the update
-    anime({
+    runAnimation({
         targets: infoPanel.firstElementChild,
         opacity: [0, 1],
         translateY: [20, 0],
@@ -214,10 +222,10 @@ function initTextAnimations() {
 
     // Animate hero title letters
     const heroTitle = document.querySelector('[data-splitting]');
-    if (heroTitle) {
+    if (heroTitle && typeof anime === 'function') {
         const chars = heroTitle.querySelectorAll('.char');
 
-        anime({
+        runAnimation({
             targets: chars,
             opacity: [0, 1],
             translateY: [50, 0],
@@ -262,7 +270,7 @@ function initNavigation() {
     // Button interactions
     document.querySelectorAll('.btn-primary').forEach(btn => {
         btn.addEventListener('mouseenter', function () {
-            anime({
+            runAnimation({
                 targets: this,
                 scale: 1.05,
                 duration: 200,
@@ -271,7 +279,7 @@ function initNavigation() {
         });
 
         btn.addEventListener('mouseleave', function () {
-            anime({
+            runAnimation({
                 targets: this,
                 scale: 1,
                 duration: 200,
@@ -303,7 +311,7 @@ function initNavigation() {
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
 
-            anime({
+            runAnimation({
                 targets: ripple,
                 scale: 2,
                 opacity: [0.3, 0],
@@ -356,7 +364,7 @@ function initWinePairing() {
                 if (pairing.dataset.pairsWith === wineType) {
                     pairing.style.display = 'block';
                     pairing.classList.add('visible');
-                    anime({
+                    runAnimation({
                         targets: pairing,
                         opacity: [0, 1],
                         translateY: [20, 0],
@@ -490,7 +498,7 @@ function showTimeSlots(date) {
     document.body.appendChild(modal);
 
     // Animate modal
-    anime({
+    runAnimation({
         targets: modal.querySelector('.bg-white'),
         scale: [0.8, 1],
         opacity: [0, 1],
