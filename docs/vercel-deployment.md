@@ -28,11 +28,11 @@ The repo includes `vercel.json`:
 {
     "framework": null,
     "buildCommand": "npm run build",
-    "outputDirectory": "."
+    "outputDirectory": "public"
 }
 ```
 
-The build command generates `dist/tailwind.css`. The root directory is used as the output directory because this is still a static HTML project with a root-level Vercel function.
+The build command generates `dist/tailwind.css`, then copies the static site files into `public/`. Vercel serves `public/` as the static output directory while still discovering the root-level `api/` directory for serverless functions.
 
 ## Runtime Flow
 

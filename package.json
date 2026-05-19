@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Static website for Arizona wine experiences",
   "scripts": {
-    "build": "npm run build:css",
+    "build": "npm run build:css && npm run build:site",
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./dist/tailwind.css --minify",
+    "build:site": "node scripts/build-site.js",
     "dev": "npm run build:css && python3 -m http.server 4173",
     "test": "node --test",
     "test:e2e": "playwright test",

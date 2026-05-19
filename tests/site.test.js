@@ -193,6 +193,6 @@ test('vercel proxy configuration is present for server-side Yelp calls', () => {
 
     assert.equal(vercelConfig.framework, null);
     assert.equal(vercelConfig.buildCommand, 'npm run build');
-    assert.equal(vercelConfig.outputDirectory, '.');
+    assert.equal(vercelConfig.outputDirectory, 'public');
     assert.match(envExample, /YELP_API_KEY=replace-with-rotated-yelp-api-key/);
 });
