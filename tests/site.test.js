@@ -43,6 +43,11 @@ test('all public pages use the current brand and shared assets', () => {
             /cdn\.tailwindcss\.com/,
             `${page} should not load the Tailwind CDN in production`
         );
+        assert.doesNotMatch(
+            html,
+            /picsum\.photos/,
+            `${page} should use intentional local imagery instead of placeholder photos`
+        );
         assert.match(html, /src=["']main\.js["']/, `${page} should load shared JS`);
 
         for (const retiredBrand of retiredBrands) {
@@ -59,9 +64,9 @@ test('pairing cards use local relevant food images instead of placeholders', () 
     const pairingHtml = readProjectFile('pairing.html');
 
     assert.doesNotMatch(pairingHtml, /picsum\.photos/);
-    assert.match(pairingHtml, /resources\/pairings\/creamy-pasta\.svg/);
-    assert.match(pairingHtml, /resources\/pairings\/mesquite-steak\.svg/);
-    assert.match(pairingHtml, /resources\/pairings\/goat-cheese-herbs\.svg/);
+    assert.match(pairingHtml, /resources\/photos\/pairings\/creamy-pasta\.jpg/);
+    assert.match(pairingHtml, /resources\/photos\/pairings\/mesquite-steak\.jpg/);
+    assert.match(pairingHtml, /resources\/photos\/pairings\/goat-cheese-herbs\.jpg/);
 });
 
 test('featured winery carousel uses local relevant winery images', () => {
@@ -73,11 +78,11 @@ test('featured winery carousel uses local relevant winery images', () => {
 
     assert.ok(carouselHtml.length > 0, 'winery carousel markup should be present');
     assert.doesNotMatch(carouselHtml, /picsum\.photos/);
-    assert.match(carouselHtml, /resources\/wineries\/los-milics-vineyards\.svg/);
-    assert.match(carouselHtml, /resources\/wineries\/rune-wines\.svg/);
-    assert.match(carouselHtml, /resources\/wineries\/alcantara-vineyards\.svg/);
-    assert.match(carouselHtml, /resources\/wineries\/dos-cabezas-wineworks\.svg/);
-    assert.match(carouselHtml, /resources\/wineries\/page-springs-cellars\.svg/);
+    assert.match(carouselHtml, /resources\/photos\/wineries\/los-milics-vineyards\.jpg/);
+    assert.match(carouselHtml, /resources\/photos\/wineries\/rune-wines\.jpg/);
+    assert.match(carouselHtml, /resources\/photos\/wineries\/alcantara-vineyards\.jpg/);
+    assert.match(carouselHtml, /resources\/photos\/wineries\/dos-cabezas-wineworks\.jpg/);
+    assert.match(carouselHtml, /resources\/photos\/wineries\/page-springs-cellars\.jpg/);
 });
 
 test('local links and local image assets resolve', () => {
