@@ -4,7 +4,15 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'public');
 
-const files = ['index.html', 'about.html', 'experiences.html', 'pairing.html', 'wine-101.html', 'main.js', 'styles.css'];
+const files = [
+    'index.html',
+    'about.html',
+    'experiences.html',
+    'pairing.html',
+    'wine-101.html',
+    'main.js',
+    'styles.css',
+];
 const directories = ['dist', 'resources'];
 
 fs.rmSync(output, { force: true, recursive: true });
